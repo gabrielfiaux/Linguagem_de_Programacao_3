@@ -1,0 +1,5 @@
+# Created at 2024-10-25T21:20:50.825
+Boot Manifest-JAR contains absolute paths in classpath 'E:\LPIII\2_bim\Trabalho_2bim\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

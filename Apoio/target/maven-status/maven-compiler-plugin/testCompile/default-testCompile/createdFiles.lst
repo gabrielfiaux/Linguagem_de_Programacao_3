@@ -1,0 +1,4 @@
+br\com\FuriniSolutions\dao\ClienteDAOIT.class
+br\com\FuriniSolutions\dao\ItemNotaDAOIT.class
+br\com\FuriniSolutions\dao\NotaFiscalDAOIT.class
+br\com\FuriniSolutions\dao\ProdutoDAOIT.class
