@@ -1,2 +1,1 @@
-use ifpr;
-describe produto
+use mysql_db;
