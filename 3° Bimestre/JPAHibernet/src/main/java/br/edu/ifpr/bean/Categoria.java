@@ -24,6 +24,9 @@ public class Categoria {
     
     @Column(nullable = false)
     private String nome;
+    
+    
+  //getter e setter  
 
     public Long getId() {
         return id;
