@@ -1,0 +1,112 @@
+Crie um projeto Maven
+Va em Project Files(ultima pasta
+abra pom.xlm
+
+Crie <dependencies> </dependencies>
+
+Procure na internet por Hibernate ORM Hibernate Core » 6.5.2.Final e MySQL Connector/J
+
+Copia as dependencias maven e cole separadamane dentro das <dependencies> </dependencies>
+
+ficara assim: 
+
+   
+    <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.5.2.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.core</artifactId>
+            <version>2.7.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.asm</artifactId>
+            <version>9.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.antlr</artifactId>
+            <version>2.7.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.7.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+            <version>2.7.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>2.7.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>jakarta.persistence</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+            <version>2.7.10</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+Agora cire o arquivo persistence.xml 
+ no projeto clique em New, em filters selecione Persistence Unit
+ em "Persistence Unit Name: Renomeie a persistencia
+ Selecione Jakarta ou Hibernete caso não tenha selecione qualque um e depois arrume
+Selecione o arquivo de conexão. no ifpr ele está em:
+C:\Users\Aluno\.m2\repository\com\mysql\mysql-connector-j
+
+após confimar a conexão configure se quiser
+
+Teste a conexão
+
+Va para proximo e pronto!
+
+Após persistence.xml Criada, clique e selecione Source
+
+mude o codigo de:
+
+ <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+
+para:
+
+  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <properties>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lp_3?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.password" value=""/>
+      <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+
+em <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lp_3?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+
+altere o nome do banco para usar oque desejar.
+
+
