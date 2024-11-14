@@ -2,40 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.atividadelp3.bean;
+package br.edu.ifpr.bean;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import java.util.List;
 
 /**
  *
  * @author Aluno
  */
-
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn (name = "funcionario_tipo")
-public abstract class Funcionario {
+@Entity
+@Table ()
+public class Cursos {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
-    
-    
     @Basic
-    @Column(length = 255)
     private String nome;
     
-    
-    @Basic
-    @Column(precision = 2)
-    private double salario;
+    @ManyToMany
+    @JoinTable(
+            name = "curso_aluno",
+            joinColumns = @JoinColumn(name = "curso_id"),
+            inverseJoinColumns = @JoinColumn(name = "aluno_id"))
+    private List<Aluno> aluno;
 
     public Long getId() {
         return id;
@@ -53,16 +50,14 @@ public abstract class Funcionario {
         this.nome = nome;
     }
 
-    public double getSalario() {
-        return salario;
+    public List<Aluno> getAluno() {
+        return aluno;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public void setAluno(List<Aluno> aluno) {
+        this.aluno = aluno;
     }
-    
-    
-  
-    
+
+   
     
 }

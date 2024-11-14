@@ -2,28 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifpr.bean.atv;
+package br.edu.ifpr.bean;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.Basic;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import java.util.List;
 
 /**
  *
  * @author Aluno
  */
-@Entity
-@Table(name = "venda")
-public class Venda {
+public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Vendedor vendedor;
-    private Gerente gerente;
+    @Basic
+    private String nome;
+
+    @ManyToMany
+    private List<Cursos> cursos;
 
     public Long getId() {
         return id;
@@ -33,22 +37,15 @@ public class Venda {
         this.id = id;
     }
 
-    public Vendedor getVendedor() {
-        return vendedor;
+    public String getNome() {
+        return nome;
     }
 
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Gerente getGerente() {
-        return gerente;
-    }
+  
 
-    public void setGerente(Gerente gerente) {
-        this.gerente = gerente;
-    }
-
-    
     
 }
